@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# e-commerce-rails-project
+>>>>>>> e0ef69b6ffa0682bbd670b2ce197b559b7a89494
