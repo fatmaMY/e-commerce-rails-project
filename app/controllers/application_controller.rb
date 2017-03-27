@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	@products = Product.all.last(5)
+  	@products = Product.all.last(6)
   	
   end
 end
