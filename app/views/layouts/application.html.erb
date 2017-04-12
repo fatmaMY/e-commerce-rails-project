@@ -25,7 +25,13 @@
             <li><%= link_to 'Products', products_path %></li>
             <li><%= link_to 'Transaction', transactions_path %></li>
             <li><%= link_to 'Contact us' %></li>
-            <li><%= link_to 'Sign up', new_user_path %></li>
+            <li> <% if current_user %>
+Logged in as <%= current_user.first_name %>
+ <%= link_to "Log Out", logout_path %></li>
+            <li><% else %>
+ <%= link_to "Sign Up", signup_path %> or
+ <%= link_to "Log In", signin_path %></li>
+  <% end %>
           </ul>
         </nav>
       </header>

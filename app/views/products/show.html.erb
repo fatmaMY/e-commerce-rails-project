@@ -1,6 +1,9 @@
 <div class="wrapper form">
 
 <p id="notice"><%= notice %></p>
+<figure>
+<%= image_tag(@product.imageURL, :alt => "Product Image",:class => "img-product") %>
+	</figure>
 
 <p>
   <strong>Name:</strong>
@@ -16,7 +19,17 @@
   <strong>Size:</strong>
   <%= @product.size %>
 </p>
+
+<p>
+  <strong>description:</strong>
+  <%= @product.description %>
+</p>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button">
+<%= link_to 'buy Now', new_charge_path %></script>
+ <!-- <button type="button">
+<%= link_to 'buy Now', new_charge_path %></button> -->
 </div>
+ 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

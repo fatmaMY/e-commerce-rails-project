@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  # before_action :require_login
+  # skip_before_action :require_login, only: [:index, :new]
+   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :require_login, only: [:index, :new]
   # GET /users
   # GET /users.json
   def index
@@ -10,6 +12,22 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    # set_user
+    if @user.transactions
+      @transactions = @user.transactions
+      # display transactions
+    else
+      # display "Hey, you don't have any transactions yet!"
+    end
+
+
+    # IN VIEW
+    # <% if @transactions %>
+    #   <% @transactions.each do |t| %>
+    #     <%= t.id %>
+    #     <%= t.price %>
+    #   <% end %>
+    # <% end %>
   end
 
   # GET /users/new
@@ -19,11 +37,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # set_user
   end
 
   # POST /users
   # POST /users.json
   def create
+    # set_user
+
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -63,12 +84,16 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def require_login
+    return head(:forbidden) unless session.include? :user_id    
+  end
+
     def set_user
       @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end

@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <div class="wrapper form">
 
+<div class="wrapper form">
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -32,6 +32,10 @@
     <%= f.password_field :password %>
   </div>
 
+  <div class="field">
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

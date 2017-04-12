@@ -1,27 +1,46 @@
 <div class="wrapper form">
+	
 
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+	<p>
+		<strong>First name:</strong>
+		<%= @user.first_name %>
+	</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+	<p>
+		<strong>Last name:</strong>
+		<%= @user.last_name %>
+	</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+	<p>
+		<strong>Email:</strong>
+		<%= @user.email %>
+	</p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+	<p>
+		<strong>Password:</strong>
+		<%= @user.password %>
+	</p>
+	<p>
+		<strong>
+			<% if @user.transactions.count == 0 %>
+			<%= "You have no transactions" %> <br>
+			<%= link_to 'Log in', signin_path %>
+			<%else%>
+			<h3><%= pluralize(@user.transactions.count, 'Transaction') %></h3>
+			<ul>
+				<% @user.transactions.each do |trans| %>
+				<li><%= link_to trans.products.name, transaction_path(trans) %></li>
+				<% end %>
+				<%end%>
+			</ul>
+
+		</strong>
+	</p>
+	
 </div>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -10,7 +10,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
-  end
+    end
+
 
   # GET /transactions/new
   def new
@@ -71,4 +72,5 @@ class TransactionsController < ApplicationController
     def transaction_params
       params.require(:transaction).permit(:date, :total, :user_id, :product_id)
     end
+
 end
