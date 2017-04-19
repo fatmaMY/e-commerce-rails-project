@@ -31,7 +31,7 @@
 			<h3><%= pluralize(@user.transactions.count, 'Transaction') %></h3>
 			<ul>
 				<% @user.transactions.each do |trans| %>
-				<li><%= link_to trans.products.name, transaction_path(trans) %></li>
+				<li><%= link_to trans.products.name, product_path(trans) %></li>
 				<% end %>
 				<%end%>
 			</ul>
