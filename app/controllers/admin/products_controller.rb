@@ -1,5 +1,5 @@
-class ProductsController < ApplicationController
-   before_action :logged_in_user
+class Admin::ProductsController < ApplicationController
+  before_action :must_be_admin, only: [:edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

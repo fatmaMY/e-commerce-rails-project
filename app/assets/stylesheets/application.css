@@ -85,7 +85,7 @@
  	margin: auto;
  	position: relative;
  	width: 550px;
- 	height: 450px;
+ 	height: auto;
  	font-family: Tahoma, Geneva, sans-serif;
  	font-size: 14px;
  	font-style: italic;
@@ -131,6 +131,15 @@
  }
  .img-product{
  	max-height: 200px;
+ }
+
+ .alert {
+ 	padding: 5px;
+    color: red;
+    margin-bottom: 5px;
+    font-weight: bolder;
+    font-size: 2em;
+    height: auto;
  }
 
  nav, footer {

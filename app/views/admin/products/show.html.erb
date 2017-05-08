@@ -1,0 +1,33 @@
+<div class="wrapper form">
+
+<p id="notice"><%= notice %></p>
+<figure>
+<%= image_tag(@product.imageURL, :alt => "Product Image",:class => "img-product") %>
+	</figure>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @product.size %>
+</p>
+
+<p>
+  <strong>description:</strong>
+  <%= @product.description %>
+</p>
+
+
+
+ 
+
+<%= link_to 'Edit', edit_admin_product_path(@product) %> |
+<%= link_to 'Back', admin_products_path %>

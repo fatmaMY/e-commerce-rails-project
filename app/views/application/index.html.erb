@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag "application.css" %>
        <div id="wood">
       <div class="wrapper clearfix">
+      <div class="alert">
+        <%= flash[:error] %>
+      </div>
     <% @products.each do |product| %>
     <section id="promotional" class="col-1 first shadow">
           <figure>

@@ -1,4 +1,9 @@
 <h1>LOG IN</h1>
+
+ <div class="alert">
+       <center><%= flash[:danger] %></center> 
+      </div>
+
 <div class="wrapper form">
 <%= form_tag signin_path do %>
 <% flash.each do |name, msg| %>
@@ -17,6 +22,9 @@
 
   <div class="actions">
   <%= submit_tag "Log In" %><%= link_to '', root_path %>
+  </div>
+  <div>
+   New User? <%= link_to "Sign Up", signup_path %>
   </div>
   
 <% end %>

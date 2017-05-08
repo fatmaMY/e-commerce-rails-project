@@ -1,4 +1,5 @@
-class TransactionsController < ApplicationController
+class Admin::TransactionsController < ApplicationController
+   before_action :must_be_admin, only: [:edit, :update, :destroy]
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   # GET /transactions
@@ -57,7 +58,7 @@ class TransactionsController < ApplicationController
   def destroy
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
+      format.html { redirect_to admin_transactions_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +71,7 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:date, :total, :user_id, :product_id)
+      params.require(:transaction).permit(:date, :total, :user_id, :product_id, :charge_id)
     end
 
 end

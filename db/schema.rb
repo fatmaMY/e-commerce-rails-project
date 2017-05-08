@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418000032) do
+ActiveRecord::Schema.define(version: 20170502220756) do
 
   create_table "charges", force: :cascade do |t|
     t.string   "stripeEmail"
@@ -37,18 +37,19 @@ ActiveRecord::Schema.define(version: 20170418000032) do
     t.float    "total"
     t.integer  "user_id"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "stripe_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "charge_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "is_admin",        default: false
   end
 
 end

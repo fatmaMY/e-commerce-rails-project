@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-Stripe.setPublishableKey('pk_test_xscw7QPdUUD3ld0tRCNjbcv4');
+// Stripe.setPublishableKey('pk_test_xscw7QPdUUD3ld0tRCNjbcv4');

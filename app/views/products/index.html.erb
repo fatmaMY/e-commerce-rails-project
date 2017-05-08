@@ -12,12 +12,12 @@
       <h3><%= product.name %></h3>
       <h3><%= product.price %>$</h3>
       <h4><%= product.size %></h4>
-       <td><%= link_to 'see more', product %></td>
+       <td><%= link_to 'see more', product_path(product) %></td>
      </section>
     <% end %>
   
 </div>
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+
 

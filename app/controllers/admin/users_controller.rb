@@ -1,7 +1,9 @@
-class UsersController < ApplicationController
- 
-	 before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # skip_before_action :current_user, only: [:index, :new]
+class Admin::UsersController < ApplicationController
+  before_action :must_be_admin, only: [:edit, :update, :destroy]
+  # before_action :require_login
+  # skip_before_action :require_login, only: [:index, :new]
+   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :require_login, only: [:index, :new]
   # GET /users
   # GET /users.json
   def index
@@ -48,7 +50,6 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        log_in @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to adnin_users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
