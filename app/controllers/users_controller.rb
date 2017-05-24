@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     # set_user
-    if @user.transactions
-      @transactions = @user.transactions
+    if @user.charges
+      @charges = @user.charges
       # display transactions
     else
       # display "Hey, you don't have any transactions yet!"

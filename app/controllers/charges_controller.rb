@@ -1,5 +1,8 @@
 class ChargesController < ApplicationController
 	before_action :logged_in_user
+  def index
+    @charges = Charge.all
+  end
 
 	def new
 		@charge = Charge.new
@@ -7,6 +10,7 @@ class ChargesController < ApplicationController
 	def thanks
 		@product = Product.find(params[:id])
 	end
+
 	def create
   # Amount in cents
   @product = Product.find(params[:id])
@@ -25,8 +29,8 @@ class ChargesController < ApplicationController
       	:currency    => 'usd'
       	)
       if charge["paid"] == true
-      ch=Charge.new(stripeEmail:params[:stripeEmail],stripeToken: params[:stripeToken],product_id:@product.id)
-      ch.save
+      @ch=Charge.new(stripeEmail:params[:stripeEmail],stripeToken: params[:stripeToken], product_id:@product.id, user_id:@user.id)
+      @ch.save
       end
       redirect_to thanks_path id:@product.id
 
@@ -34,9 +38,11 @@ class ChargesController < ApplicationController
   	flash[:error] = e.message
   	redirect_to new_charge_path
   end
+  def show
+  end
   private
   def charges_params
-  	params.require(:charge).permit(:transaction_id, :stripeEmail, :amount, :stripeToken, :product_id)
+  	params.require(:charge).permit(:stripeEmail, :amount, :stripeToken, :product_id, :user_id)
 
   end
 

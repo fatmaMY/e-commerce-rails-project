@@ -13,6 +13,7 @@
       <h3><%= product.price %>$</h3>
       <h4><%= product.size %></h4>
        <td><%= link_to 'see more', product_path(product) %></td>
+        <td><%= button_to "Add to Cart", cart_items_path(:product_id => product, :cart_id => @cart ), :method => :post, :class => "button" %></td>
      </section>
     <% end %>
   

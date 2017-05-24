@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Transactions</h1>
+<div class="wrapper">
+<table>
+  <thead>
+    <tr>
+      <th>charge_id:</th>
+      <th>Stripe Email</th>
+      <th>Stripe Token</th>
+      <th>Product_id:</th>
+      <th>Product Name</th>
+      <th>Product price</th>
+      <th>Date</th>
+       <th>User_id</th>
+       <th>First Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charges.each do |char| %>
+      <tr>
+        <td> <%= char.id %></td>
+        <td><%= char.stripeEmail %></td>
+        <td><%= char.stripeToken %></td>
+        <td><%= char.product_id %></td>
+        <td><%= char.product.name %></td>
+        <td><%= char.product.price %></td>
+        <td><%= char.updated_at %></td>
+        <td><%= char.user_id %></td>
+        <td><%= char.user.first_name if char.user!=nil%></td>
+    
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

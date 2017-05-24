@@ -54,11 +54,12 @@
  	margin: 10px;
  }
  th, td {
- 	padding: 15px;
- 	text-align: left;
+ 	padding: 7px;
+ 	text-align: center;
  }
  table, th, td {
  	border: 1px solid black;
+ 	width: auto;
  }
  th {
  	background-color: #aeaca8;
@@ -125,6 +126,19 @@
  .clear {
  	clear:both;
  }
+
+ .button {
+ 	background-color: #d98cb3;
+    border: none;
+    color: #696969;
+    margin: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 100px;
+ }
  
  figure {
  	height: 180px;
@@ -146,21 +160,22 @@
  	clear: both;
  	color: #ffffff;
  	background-color: #aeaca8;
- 	height: 30px;}
+ 	height: auto;}
  	nav ul {
  		margin: 0px;
- 		padding: 5px 0px 5px 30px;}
+ 		padding: 10px 0px 10px 30px;}
  		nav li {
- 			display: inline;
+ 			display: inline-block;
  			margin-right: 40px;}
  			nav li a {
- 				color: #ffffff;}
+ 				color: #000;}
  				nav li a:hover, nav li a.current {
  					color: blue;}
 
- 					a {
- 						color: #de6581;
- 						text-decoration: none;}
+ 			.links a {
+ 						color: #000;
+ 						text-decoration: none;
+ 						font-size: 1.5em; }
  						 h2, h3,h4 {
  							font-weight: bolder;
  							color: #d6d6c2;
@@ -175,7 +190,7 @@
  									footer {
  										text-align: center; 
  										font-size: 0.75em;
- 										padding: 5px;
+ 										padding: 10px;
  										border-top: 1px solid; 
  										color: #000;
  									}

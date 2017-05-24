@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     resources :products
     resources :users
     resources :transactions
+    resources :charges
 
   end
   get 'admin', to: 'admin#control_panel'
+# post '/cart_items/:product_id' => 'cart_items#create', :as => 'add_to_cart'
+post '/add_to_cart/:product_id' => 'cart#add_product', :as => 'add_to_cart'
 
   # get 'sessions/create'
   get '/login' => 'sessions#new'
@@ -16,6 +19,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get  '/hello' => 'sessions#hello'
   get '/signup' => 'users#new'
+  resources :cart
+  resources :cart_items
+   # get "cart_items/create"
   resources :charges
   resources :transactions, only: [:new, :show]
   resources :users, only: [:new, :show, :edit, :create]
