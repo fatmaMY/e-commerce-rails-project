@@ -1,11 +1,11 @@
-<% if current_user %>
-<% if @cart.cart_items.size == 0 %>
+<% if current_user  %>
+<% if @cart_items.size == 0  %>
   <h2>
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+    There are no items in your shopping cart.  Please <%= link_to "go back", products_path %> and add some items to your cart.
   </h2>
   <% else %>
   <h1>
-  <% @cart.cart_items.each do |order_item| %>
+  <% @cart_items.each do |order_item| %>
     <%= order_item.product.name %><br>
     <%= order_item.product.price %><br>
     <%= order_item.quantity %><br> 

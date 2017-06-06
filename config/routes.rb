@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   get 'admin', to: 'admin#control_panel'
 # post '/cart_items/:product_id' => 'cart_items#create', :as => 'add_to_cart'
-post '/add_to_cart/:product_id' => 'cart#add_product', :as => 'add_to_cart'
+post '/add_to_cart/:product_id' => 'cart_items#create', :as => 'add_to_cart'
 
   # get 'sessions/create'
   get '/login' => 'sessions#new'

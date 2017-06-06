@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
    # before_action :current_user
  add_flash_types :error, :danger
- before_action :current_cart
+  before_action :current_cart
+ 
   def index
   	@products = Product.order(price: :desc).limit(5)
   	
@@ -41,6 +42,7 @@ class ApplicationController < ActionController::Base
         @cart
       end
   end 
+
    helper_method :current_cart
 
    def must_be_admin
