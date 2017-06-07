@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application.css" %>
-
+  <script src="https://use.fontawesome.com/5d895059d5.js"></script>
   
   </head>
 
@@ -20,15 +20,16 @@
         <nav>
           <ul>
             
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Products', products_path %></li>
-            <li><%= link_to 'Contact us' %></li>
-            <li><%= link_to "Admin Page", admin_path %></li>
-            <li> <% if current_user %>
-Logged in as<< <%= current_user.first_name %> >>
-<%= link_to " Profile ", user_path(current_user) %>
- <%= link_to " Log Out ", logout_path %></li>
-            <li><% else %>
+            <li class="links"><%= link_to 'Home', root_path %></li>
+            <li class="links"><%= link_to 'Products', products_path %></li>
+            <li class="links"><%= link_to 'Contact us' %></li>
+            <li class="links"> <% if current_user %>
+<h2>Logged in as<< <%= current_user.first_name %> >></h2>
+<li class="links"><%= link_to " Profile ", user_path(current_user) %></li>
+<li class="links"> <%= link_to "Admin Page", admin_path if current_user.is_admin %> </li>
+<li class="links"> <%= link_to " Log Out ", logout_path %></li>
+<li ><a href="<%= cart_path(current_user)%>" <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i></a></li>
+            <li class="links"><% else %>
  <%= link_to " Sign Up ", signup_path %> or
  <%= link_to " Log In ", signin_path %></li>
   <% end %>

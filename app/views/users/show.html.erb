@@ -24,14 +24,14 @@
 	</p>
 	<p>
 		<strong>
-			<% if @user.transactions.count == 0 %>
+			<% if @user.charges.count == 0 %>
 			<%= "You have no transactions" %> <br>
 			
 			<%else%>
-			<h3><%= pluralize(@user.transactions.count, 'Transaction') %></h3>
+			<h3><%= pluralize(@user.charges.count, 'Transaction') %></h3>
 			<ul>
-				<% @user.transactions.each do |trans| %>
-				<li><%= link_to trans.products.name, admin_product_path(trans) %></li>
+				<% @user.charges.each do |trans| %>
+				<li><%= link_to trans.product.name, product_path(trans) %></li>
 				<% end %>
 				<%end%>
 			</ul>
